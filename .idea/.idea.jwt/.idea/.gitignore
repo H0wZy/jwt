@@ -1,0 +1,57 @@
+﻿# Rider IDE
+.idea/
+*.sln.iml
+
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio folders (caso outros usem VS)
+.vs/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Files built by Visual Studio
+*.dbmdl
+*.jfm
+*.pfx
+*.publishsettings
+
+# NuGet Packages
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+# Entity Framework
+*.edmx.diagram
+*.edmx.sql
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp

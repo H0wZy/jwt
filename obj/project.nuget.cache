@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Xu53nzb92+U=",
+  "success": true,
+  "projectFilePath": "D:\\Outros\\Desktop\\jwt\\jwt.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.7\\microsoft.aspnetcore.openapi.9.0.7.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
