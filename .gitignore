@@ -6,6 +6,8 @@
 bin/
 obj/
 out/
+Properties/
+appsettings.Development.json
 
 # User-specific files
 *.suo
