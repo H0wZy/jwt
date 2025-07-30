@@ -5,7 +5,7 @@ using jwt.Utils;
 
 namespace jwt.Services.AuthService;
 
-public class AuthService(IAuthRepository authRepository) : IAuthService
+public class AuthService(IAuthRepository authRepository, IConfiguration configuration) : IAuthService
 {
     public async Task<ResponseModel<RegisterResponseDto>> RegisterAsync(RegisterDto dto)
     {
@@ -73,7 +73,7 @@ public class AuthService(IAuthRepository authRepository) : IAuthService
             user.LastLoginAt = DateTime.UtcNow;
             await authRepository.UpdateUserAsync(user);
 
-            const string token = "token-super-criptografado-123";
+            var token = JwtHelper.GenerateToken(user, configuration);
 
             return new ResponseModel<LoginResponseDto>(
                 new LoginResponseDto(token, user.Username, user.Email, user.Firstname, user.Lastname, user.Cargo),

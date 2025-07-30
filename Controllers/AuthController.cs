@@ -1,6 +1,8 @@
+using System.Security.Claims;
 using jwt.Dtos;
 using jwt.Models;
 using jwt.Services.AuthService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace jwt.Controllers;
@@ -21,5 +23,29 @@ public class AuthController(IAuthService authService) : ControllerBase
     {
         var response = await authService.LoginAsync(dto);
         return response.Success ? Ok(response) : BadRequest(response);
+    }
+
+    [Authorize]
+    [HttpGet("profile")]
+    public IActionResult GetProfile()
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var username = User.FindFirstValue(ClaimTypes.Name);
+        var email = User.FindFirstValue(ClaimTypes.Email);
+        var firstname = User.FindFirstValue(ClaimTypes.GivenName);
+        var lastname = User.FindFirstValue(ClaimTypes.Surname);
+        var role = User.FindFirstValue(ClaimTypes.Role);
+
+        var userInfo = new
+        {
+            Id = userId,
+            Username = username,
+            Email = email,
+            Firstname = firstname,
+            Lastname = lastname,
+            Role = role
+        };
+
+        return Ok(new ResponseModel<object>(userInfo, "Perfil recuperado com sucesso!", true));
     }
 }
