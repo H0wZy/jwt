@@ -12,7 +12,7 @@ using jwt.Data;
 namespace jwt.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250727214527_Initial")]
+    [Migration("20250729213309_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -36,7 +36,14 @@ namespace jwt.Migrations
                     b.Property<int>("Cargo")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Firstname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -44,7 +51,13 @@ namespace jwt.Migrations
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<bool>("IsUserDisabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastLoginAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Lastname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -52,8 +65,12 @@ namespace jwt.Migrations
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<DateTime>("TokenCreatedAt")
+                    b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

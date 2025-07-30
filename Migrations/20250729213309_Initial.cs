@@ -17,12 +17,17 @@ namespace jwt.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Firstname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Lastname = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HashPassword = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     SaltPassword = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     Cargo = table.Column<int>(type: "int", nullable: false),
-                    TokenCreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastLoginAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsUserDisabled = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
